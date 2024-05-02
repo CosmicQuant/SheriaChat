@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "146094344291",
+    "project_id": "sample-chat-app-jez69n",
+    "storage_bucket": "sample-chat-app-jez69n.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146094344291:android:95b3cdf1f6f7f7b9c71056",
+        "android_client_info": {
+          "package_name": "com.flutterflow.fflivestreamgemini"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8ROSTiZCAA_ueUHsDHW5kI5lCjfLNci4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146094344291:android:38577993a7f66aa3c71056",
+        "android_client_info": {
+          "package_name": "com.mycompany.samplechatapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8ROSTiZCAA_ueUHsDHW5kI5lCjfLNci4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
