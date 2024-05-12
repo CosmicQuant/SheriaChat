@@ -93,7 +93,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Chat_Main',
           path: '/chatMain',
-          builder: (context, params) => ChatMainWidget(),
+          builder: (context, params) => ChatMainWidget(
+            pageConversation: params.getParam(
+              'pageConversation',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['conversations'],
+            ),
+          ),
         ),
         FFRoute(
           name: 'auth_WelcomeScreen',
@@ -311,9 +318,9 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: FlutterFlowTheme.of(context).info,
+                  color: Colors.transparent,
                   child: Image.asset(
-                    'assets/images/splash_gemini.jpg',
+                    'assets/images/app_launcher_icon.jpeg',
                     fit: BoxFit.cover,
                   ),
                 )
@@ -380,4 +387,14 @@ class RootPageContext {
         value: RootPageContext(true, errorRoute),
         child: child,
       );
+}
+
+extension GoRouterLocationExtension on GoRouter {
+  String getCurrentLocation() {
+    final RouteMatch lastMatch = routerDelegate.currentConfiguration.last;
+    final RouteMatchList matchList = lastMatch is ImperativeRouteMatch
+        ? lastMatch.matches
+        : routerDelegate.currentConfiguration;
+    return matchList.uri.toString();
+  }
 }

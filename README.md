@@ -1,4 +1,4 @@
-# SheriaChat
+# Chatbot
 
 A new Flutter project.
 

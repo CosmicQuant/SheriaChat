@@ -183,8 +183,7 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget> {
                                   ),
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      color: Color(0x00000000),
                                       width: 2.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
@@ -213,12 +212,8 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget> {
                                     ),
                                   ),
                                   filled: true,
-                                  fillColor:
-                                      (_model.displayNameFocusNode?.hasFocus ??
-                                              false)
-                                          ? FlutterFlowTheme.of(context).accent1
-                                          : FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
                                   contentPadding:
                                       EdgeInsetsDirectional.fromSTEB(
                                           16.0, 16.0, 16.0, 8.0),
@@ -230,8 +225,6 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget> {
                                       letterSpacing: 0.0,
                                       lineHeight: 1.5,
                                     ),
-                                cursorColor:
-                                    FlutterFlowTheme.of(context).primary,
                                 validator: _model
                                     .displayNameTextControllerValidator
                                     .asValidator(context),
@@ -275,8 +268,7 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget> {
                                   ),
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      color: Color(0x00000000),
                                       width: 2.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
@@ -305,12 +297,8 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget> {
                                     ),
                                   ),
                                   filled: true,
-                                  fillColor:
-                                      (_model.emailAddressFocusNode?.hasFocus ??
-                                              false)
-                                          ? FlutterFlowTheme.of(context).accent1
-                                          : FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
                                   contentPadding:
                                       EdgeInsetsDirectional.fromSTEB(
                                           16.0, 16.0, 16.0, 8.0),
@@ -322,8 +310,6 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget> {
                                       letterSpacing: 0.0,
                                       lineHeight: 1.5,
                                     ),
-                                cursorColor:
-                                    FlutterFlowTheme.of(context).primary,
                                 validator: _model
                                     .emailAddressTextControllerValidator
                                     .asValidator(context),
@@ -368,8 +354,7 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget> {
                                   ),
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      color: Color(0x00000000),
                                       width: 2.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
@@ -398,12 +383,8 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget> {
                                     ),
                                   ),
                                   filled: true,
-                                  fillColor:
-                                      (_model.passwordFocusNode?.hasFocus ??
-                                              false)
-                                          ? FlutterFlowTheme.of(context).accent1
-                                          : FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
                                   contentPadding:
                                       EdgeInsetsDirectional.fromSTEB(
                                           16.0, 16.0, 16.0, 8.0),
@@ -430,8 +411,6 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget> {
                                       letterSpacing: 0.0,
                                       lineHeight: 1.5,
                                     ),
-                                cursorColor:
-                                    FlutterFlowTheme.of(context).primary,
                                 validator: _model
                                     .passwordTextControllerValidator
                                     .asValidator(context),

@@ -12,6 +12,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 class GeminiCall {
   static Future<ApiCallResponse> call({
     String? query = '',
+    String? id = '',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -32,13 +33,12 @@ class GeminiCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'gemini',
-      apiUrl:
-          'https://discoveryengine.googleapis.com/v1alpha/projects/373835513072/locations/global/collections/default_collection/dataStores/criminal-and-affordable_1714399264882/conversations/-:converse',
+      apiUrl: 'https://discoveryengine.googleapis.com/v1alpha/${id}:converse',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
         'Authorization':
-            'Bearer ya29.c.c0AY_VpZhhvDn8VGbp4mxwxaD-vUs9JK5-dG6q3bXKyAXcrGJA7pFCEoe3bNAUs_M0rfDJQIQioEeoBAJLeXNH-XoGCZcfNZeKmQ622IhQ3Jj2sZzDl-QzuYpyk4sCjuspd5ZFQsmocGh_ofWynNERMeV2U74r53Wv9_4nHPPHrdC9bCBKuvRrLm8T3HoZuH1ELAgIA4g9EVDU2xVt4KtiDJJ2zOTOLhsnubdXVPlSjydjHK3SPg402WkUHS21COBiK1LO9VEqsBFVMSiRJDg5hyNMUTN6OhidnhYcdbchB58wuMd4Gy1U3qLmC5GMJxQPnd1Exg_ubQbFG7HIVcTQDG91A6vYRGVwfrSEuEdASnvle2Pgm8F3O4EuAcc6i_KfOqMhtQhxunJdiaA9LGsN412PBaQxvhdz0fn0vI2S6pzRekkayR4BvM1t9bhx5ibtIUlSF4Bzk6bbQWlg5chbgYIMaarXYtQF0WMUWeWSzaxzg0v0Ol-5Zcvb8Blg_oRyWdplsJRfyU9o_fh01rSrv-n7iqzUncccV33dOBOi_040yVxX8do6r7isYIk8FM2J3Mxx1nxfJit6r9RIbjpwjj7h0jlXm_OZf_stxbs5wiyB4ZbnqtQtapngqjurtsex0kV417Oc6db_Jr9l2Rkped7e1F4QyfSOriVuMViyfOUyQgMmX6r2aRQ8uSXRI_b4JJYoyVz-sUIzIy3rdp1ySuSJ3I-0sJfyJeQtIfkfh88UIku0aSOxnaglvkvSmMBz99eqoiO7uXrpY_YIBnQv5ouIW6JyaJ6Ut0vv2MFJu7sZ0hz9nyh_4JwYw5l8yilO5hQfBvr7aIRy04wIJxOgZ1lUbYxmUWJ1MS-7i05s8fgRXIIW7tezb0q0m-x_Bj1MyXcFhzpneaIap_Oy-Bnk5r1F4va7dntl9nrwJnMB9jpIW1i-9yl7BUYs1fleSrcW1aaagBXzfF-uounp2hfMFO8lu39kQ-Xhl4rfix17Mg-2g0nq9bu262J',
+            'Bearer ya29.a0AXooCguri2f_uu-8gmgp9FUPCXMU1jJOY0gj_CmJXVFTWmtD0xvI1BwXWHtnILB4GGlGqrzIQYGnRYHA-0-refTLyA3ClVx-kWau9nHo-nVEsn8gyzHw8xiyreXApEgHl5XJLlGIRdqQUiHSCmDIcpmD3ARrA60BrPr3elqqtnN1QBDc-UYdR1pCn0himDB7djShTqQ8P5wNV8S7qUTG4frsq_xYrq9IS31hX-OCW5fQX4jmEk11lc9y6RP1XjTUjquQvSGehjrsrZrbQaP_iVm_SZlfrCDNCH-RrLcbumqh-Ia_Tw11W_efsMba6QNsxLe4TQ49ts5vzD7zhPbevtbnboE1O5-p1cnrO8Wt29lSU-aWZC8jQTPewu85EXdYAZqG2Fb8NAjWCyG0vOyu1FLA_6lEwz6maCgYKAXsSARISFQHGX2MiehkPcdORFECRdb9eiN48iw0423',
       },
       params: {},
       body: ffApiRequestBody,
@@ -54,6 +54,41 @@ class GeminiCall {
   static String? response(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.reply.summary.summaryWithMetadata.summary''',
+      ));
+}
+
+class CreategeminiCall {
+  static Future<ApiCallResponse> call({
+    String? uid = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "user_pseudo_id": "${uid}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'creategemini',
+      apiUrl:
+          'https://discoveryengine.googleapis.com/v1alpha/projects/373835513072/locations/global/collections/default_collection/dataStores/criminal-and-affordable_1714399264882/conversations/',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':
+            'Bearer ya29.a0AXooCguri2f_uu-8gmgp9FUPCXMU1jJOY0gj_CmJXVFTWmtD0xvI1BwXWHtnILB4GGlGqrzIQYGnRYHA-0-refTLyA3ClVx-kWau9nHo-nVEsn8gyzHw8xiyreXApEgHl5XJLlGIRdqQUiHSCmDIcpmD3ARrA60BrPr3elqqtnN1QBDc-UYdR1pCn0himDB7djShTqQ8P5wNV8S7qUTG4frsq_xYrq9IS31hX-OCW5fQX4jmEk11lc9y6RP1XjTUjquQvSGehjrsrZrbQaP_iVm_SZlfrCDNCH-RrLcbumqh-Ia_Tw11W_efsMba6QNsxLe4TQ49ts5vzD7zhPbevtbnboE1O5-p1cnrO8Wt29lSU-aWZC8jQTPewu85EXdYAZqG2Fb8NAjWCyG0vOyu1FLA_6lEwz6maCgYKAXsSARISFQHGX2MiehkPcdORFECRdb9eiN48iw0423',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? id(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.name''',
       ));
 }
 

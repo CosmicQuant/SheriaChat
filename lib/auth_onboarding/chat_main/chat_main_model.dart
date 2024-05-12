@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/conversation_card_widget.dart';
 import '/components/dark_switch_widget.dart';
@@ -9,6 +10,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/flutter_flow/request_manager.dart';
 
@@ -33,6 +35,8 @@ class ChatMainModel extends FlutterFlowModel<ChatMainWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for MouseRegion widget.
   bool mouseRegionHovered = false;
+  // Stores action output result for [Backend Call - API (creategemini)] action in Container widget.
+  ApiCallResponse? path;
   // Stores action output result for [Backend Call - Create Document] action in Container widget.
   ConversationsRecord? newConversation;
   // Models for conversationCard dynamic component.

@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -531,7 +532,7 @@ class _AuthWelcomeScreenWidgetState extends State<AuthWelcomeScreenWidget>
                                             MainAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'Chat in Swahili',
+                                            'Chat in 15 languages',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
@@ -547,7 +548,7 @@ class _AuthWelcomeScreenWidgetState extends State<AuthWelcomeScreenWidget>
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 16.0, 0.0, 0.0),
                                             child: Text(
-                                              'Ask and get responses in Swahili',
+                                              'Ask and get responses in your language',
                                               textAlign: TextAlign.center,
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -583,6 +584,7 @@ class _AuthWelcomeScreenWidgetState extends State<AuthWelcomeScreenWidget>
                                         duration: Duration(milliseconds: 500),
                                         curve: Curves.ease,
                                       );
+                                      setState(() {});
                                     },
                                     effect: smooth_page_indicator
                                         .ExpandingDotsEffect(

@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/conversation_card_widget.dart';
 import '/components/dark_switch_widget.dart';
@@ -9,6 +10,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -21,7 +23,12 @@ import 'chat_main_model.dart';
 export 'chat_main_model.dart';
 
 class ChatMainWidget extends StatefulWidget {
-  const ChatMainWidget({super.key});
+  const ChatMainWidget({
+    super.key,
+    this.pageConversation,
+  });
+
+  final DocumentReference? pageConversation;
 
   @override
   State<ChatMainWidget> createState() => _ChatMainWidgetState();
@@ -175,6 +182,10 @@ class _ChatMainWidgetState extends State<ChatMainWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              _model.path = await CreategeminiCall.call(
+                                uid: currentUserUid,
+                              );
+
                               var conversationsRecordReference =
                                   ConversationsRecord.collection.doc();
                               await conversationsRecordReference
@@ -183,6 +194,10 @@ class _ChatMainWidgetState extends State<ChatMainWidget>
                                 timeCreated: getCurrentTimestamp,
                                 timeEdited: getCurrentTimestamp,
                                 id: random_data.randomInteger(0, 1000000000),
+                                path: getJsonField(
+                                  (_model.path?.jsonBody ?? ''),
+                                  r'''$.name''',
+                                ).toString(),
                               ));
                               _model.newConversation =
                                   ConversationsRecord.getDocumentFromData(
@@ -192,6 +207,10 @@ class _ChatMainWidgetState extends State<ChatMainWidget>
                                         timeEdited: getCurrentTimestamp,
                                         id: random_data.randomInteger(
                                             0, 1000000000),
+                                        path: getJsonField(
+                                          (_model.path?.jsonBody ?? ''),
+                                          r'''$.name''',
+                                        ).toString(),
                                       ),
                                       conversationsRecordReference);
                               setState(() {
@@ -365,6 +384,10 @@ class _ChatMainWidgetState extends State<ChatMainWidget>
                                                     listViewConversationsRecord
                                                         .reference;
                                                 _model.hasActiveChat = true;
+                                              });
+                                              setState(() {
+                                                FFAppState().expandMenu =
+                                                    !FFAppState().expandMenu;
                                               });
                                             },
                                             child: wrapWithModel(

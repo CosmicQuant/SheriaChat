@@ -46,6 +46,11 @@ class ConversationsRecord extends FirestoreRecord {
   int get id => _id ?? 0;
   bool hasId() => _id != null;
 
+  // "path" field.
+  String? _path;
+  String get path => _path ?? '';
+  bool hasPath() => _path != null;
+
   void _initializeFields() {
     _userRef = snapshotData['userRef'] as DocumentReference?;
     _timeCreated = snapshotData['timeCreated'] as DateTime?;
@@ -56,6 +61,7 @@ class ConversationsRecord extends FirestoreRecord {
     );
     _name = snapshotData['name'] as String?;
     _id = castToType<int>(snapshotData['id']);
+    _path = snapshotData['path'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -98,6 +104,7 @@ Map<String, dynamic> createConversationsRecordData({
   DateTime? timeEdited,
   String? name,
   int? id,
+  String? path,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -106,6 +113,7 @@ Map<String, dynamic> createConversationsRecordData({
       'timeEdited': timeEdited,
       'name': name,
       'id': id,
+      'path': path,
     }.withoutNulls,
   );
 
@@ -124,7 +132,8 @@ class ConversationsRecordDocumentEquality
         e1?.timeEdited == e2?.timeEdited &&
         listEquality.equals(e1?.conversation, e2?.conversation) &&
         e1?.name == e2?.name &&
-        e1?.id == e2?.id;
+        e1?.id == e2?.id &&
+        e1?.path == e2?.path;
   }
 
   @override
@@ -134,7 +143,8 @@ class ConversationsRecordDocumentEquality
         e?.timeEdited,
         e?.conversation,
         e?.name,
-        e?.id
+        e?.id,
+        e?.path
       ]);
 
   @override

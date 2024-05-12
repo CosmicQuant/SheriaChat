@@ -494,6 +494,7 @@ class _ThreadChatsWidgetState extends State<ThreadChatsWidget> {
                                       cardCommentConversationsRecord.reference);
                               _model.createdText = await GeminiCall.call(
                                 query: _model.textController.text,
+                                id: cardCommentConversationsRecord.path,
                               );
                               setState(() {
                                 _model.textController?.clear();
@@ -538,7 +539,7 @@ class _ThreadChatsWidgetState extends State<ThreadChatsWidget> {
                                 ));
                               });
                               await Future.delayed(
-                                  const Duration(milliseconds: 1000));
+                                  const Duration(milliseconds: 200));
                               unawaited(
                                 () async {
                                   await _model.listViewController?.animateTo(

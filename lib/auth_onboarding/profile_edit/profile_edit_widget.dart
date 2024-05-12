@@ -148,7 +148,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).primary,
+                        color: Color(0x00000000),
                         width: 2.0,
                       ),
                       borderRadius: BorderRadius.circular(8.0),
@@ -208,7 +208,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).primary,
+                        color: Color(0x00000000),
                         width: 2.0,
                       ),
                       borderRadius: BorderRadius.circular(8.0),
